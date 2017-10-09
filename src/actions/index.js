@@ -1,27 +1,28 @@
-import {combineReducers} from 'react-redux';
+const loadProducts = ()=>{
+    let products = [
+        {id: 1, name: 'papaya'},
+        {id: 2, name: 'manzana'}
+    ]
 
-const initialState = {
-    products: [],
-    cart: []
-}
-const products = (state = initialState.products, action)=>{
-    switch(action.type){
-        case 'REPLACE_PRODUCTS':
-            return action.products
-        default:
-            return state
+    return {
+        type: 'REPLACE_PRODUCTS',
+        products
     }
-}
+};
 
-const cart = (state = initialState.cart, action)=>{
-    switch(action.type){
-        case 'ADD_PRODUCT':
-            return state.concat(action.product);
-        case 'DELETE_PRODUCT':
-            return state.filter(product=>product.id!==action.product.id)
-        default:
-            return state
+const addToCart = product =>{
+    return {
+        type: 'ADD_PRODUCT',
+        product
     }
-}
+};
 
-export default combineReducers({products,cart})
+
+const removeFromCart = product =>{
+    return {
+        type: 'DELETE_PRODUCT',
+        product
+    }
+};
+
+export { loadProducts,addToCart,removeFromCart};
