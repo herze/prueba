@@ -9,9 +9,9 @@ import reducer from './reducers'
 import registerServiceWorker from './registerServiceWorker';
 import {loadProducts} from './actions/index';
 const logger = store => next =>action=> {
-    console.log('dispath'+action)
+    console.log(action)
     let result = next(action)
-    console.log('next state'+store.getState())
+    console.log(store.getState())
     return result;
 }
 

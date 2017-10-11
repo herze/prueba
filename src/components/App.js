@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProductList from './ProductList';
+import CartProduct from './CartProduct';
 export default class App extends Component{
     render(){
         return(
@@ -7,7 +8,7 @@ export default class App extends Component{
                 <div>
                     <ProductList />
                 </div>
-                <div>Cart</div>
+                    <CartProduct />
             </div>
         )
     }
